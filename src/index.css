@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600;700;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #1A5F7A;
+  --color-secondary: #0E3B4D;
+  --color-accent: #C84B31;
+  --color-bg-pattern: rgba(26, 95, 122, 0.04);
+  --hero-overlay: linear-gradient(135deg, rgba(14, 59, 77, 0.75) 0%, rgba(26, 95, 122, 0.55) 50%, rgba(200, 75, 49, 0.25) 100%);
+
+  font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #1f2937;
+  background: #fafaf7;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[data-skin="default"] {
+  --color-primary: #1A5F7A;
+  --color-secondary: #0E3B4D;
+  --color-accent: #C84B31;
+  --color-bg-pattern: rgba(26, 95, 122, 0.04);
+  --hero-overlay: linear-gradient(135deg, rgba(14, 59, 77, 0.78) 0%, rgba(26, 95, 122, 0.58) 50%, rgba(200, 75, 49, 0.22) 100%);
+}
+
+[data-skin="spring"] {
+  --color-primary: #B91C1C;
+  --color-secondary: #7F1D1D;
+  --color-accent: #F59E0B;
+  --color-bg-pattern: rgba(185, 28, 28, 0.06);
+  --hero-overlay: linear-gradient(135deg, rgba(127, 29, 29, 0.82) 0%, rgba(185, 28, 28, 0.62) 50%, rgba(245, 158, 11, 0.3) 100%);
+}
+
+[data-skin="national"] {
+  --color-primary: #DC2626;
+  --color-secondary: #991B1B;
+  --color-accent: #FBBF24;
+  --color-bg-pattern: rgba(220, 38, 38, 0.05);
+  --hero-overlay: linear-gradient(135deg, rgba(153, 27, 27, 0.8) 0%, rgba(220, 38, 38, 0.6) 50%, rgba(251, 191, 36, 0.28) 100%);
+}
+
+[data-skin="midautumn"] {
+  --color-primary: #8874B8;
+  --color-secondary: #5B4B8A;
+  --color-accent: #E8A87C;
+  --color-bg-pattern: rgba(136, 116, 184, 0.05);
+  --hero-overlay: linear-gradient(135deg, rgba(91, 75, 138, 0.78) 0%, rgba(136, 116, 184, 0.58) 50%, rgba(232, 168, 124, 0.25) 100%);
+}
+
+[data-skin="dragonboat"] {
+  --color-primary: #2F6B4F;
+  --color-secondary: #1E4A38;
+  --color-accent: #E07C3F;
+  --color-bg-pattern: rgba(47, 107, 79, 0.05);
+  --hero-overlay: linear-gradient(135deg, rgba(30, 74, 56, 0.78) 0%, rgba(47, 107, 79, 0.58) 50%, rgba(224, 124, 63, 0.25) 100%);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at 10% 0%, var(--color-bg-pattern) 0%, transparent 40%),
+    radial-gradient(circle at 90% 100%, var(--color-bg-pattern) 0%, transparent 40%);
+  background-attachment: fixed;
+}
+
+@layer utilities {
+  .bg-pattern {
+    background-color: transparent;
+    background-image:
+      radial-gradient(circle at 20% 10%, var(--color-bg-pattern) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, var(--color-bg-pattern) 0%, transparent 50%);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .hero-overlay {
+    background: var(--hero-overlay);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl2 bg-[var(--color-accent)] text-white font-medium shadow-glow hover:brightness-110 active:scale-[0.98] transition-all duration-200;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl2 border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-medium hover:bg-[var(--color-primary)] hover:text-white transition-all duration-200;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+  }
+
+  .glass-dark {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+  }
+
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+  .delay-500 { animation-delay: 0.5s; }
+}
